@@ -14,6 +14,16 @@ app.get("/", (req, res) => {
     res.render("pages/index");
 });
 
+//page about KAsquared
+app.get("/aboutus", (req, res) => {
+    res.render("pages/aboutus")
+});
+
+//contacting KAsquared
+app.get("/contactus", (req, res) => {
+    res.render("pages/contactus")
+});
+
 //route to get to the database - need to make reference to the gameOfThroneData.js
 app.get('/tvshows', (req, res) => {
     const gameOfThronesEpisodes = [
@@ -21,7 +31,7 @@ app.get('/tvshows', (req, res) => {
         { name: "Quote Two", snippet: "The only way to do great work is to love what you do." },
         { name: "Quote Three", snippet: "The future belongs to those who believe in the beauty of their dreams." },
     ];
-    res.render('tvshows', { gameOfThronesEpisodes : gameOfThronesEpisodes });
+    res.render('pages/tvshows', { gameOfThronesEpisodes : gameOfThronesEpisodes });
 });
 function summariseEpisodesToConsole(episodes) {
     console.log(`Loaded ${episodes.length} episodes`);
