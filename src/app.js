@@ -1,10 +1,12 @@
 const { app } = require("./support/setupExpress");
 const { query } = require("./support/db");
-const { gameOfThronesEpisodes } = require("./data/gameOfThronesData");
+const {gameOfThronesEpisodes} = require('./data/gameOfThronesData.js')
 
 /** 
  @typedef {import('./data/episodeType').Episode} Episode
 */
+
+
 
 //You can delete this once you see the episodes have loaded ok.
 summariseEpisodesToConsole(gameOfThronesEpisodes);
