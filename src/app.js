@@ -6,8 +6,6 @@ const {gameOfThronesEpisodes} = require('./data/gameOfThronesData.js')
  @typedef {import('./data/episodeType').Episode} Episode
 */
 
-
-
 //You can delete this once you see the episodes have loaded ok.
 summariseEpisodesToConsole(gameOfThronesEpisodes);
 
@@ -15,6 +13,21 @@ summariseEpisodesToConsole(gameOfThronesEpisodes);
 app.get("/", (req, res) => {
     res.render("pages/index");
 });
+
+//route to get to the database - need to make reference to the gameOfThroneData.js
+app.get('/tvshows', (req, res) => {
+    const gameOfThronesEpisodes = [
+        { name: "Quote One", snippet: "Believe you can, and you're halfway there." },
+        { name: "Quote Two", snippet: "The only way to do great work is to love what you do." },
+        { name: "Quote Three", snippet: "The future belongs to those who believe in the beauty of their dreams." },
+    ];
+    res.render('tvshows', { gameOfThronesEpisodes : gameOfThronesEpisodes });
+});
+function summariseEpisodesToConsole(episodes) {
+    console.log(`Loaded ${episodes.length} episodes`);
+    console.log("The first episode has name of " + episodes[0].name);
+}
+
 
 app.get("/db-test", async (req, res) => {
     try {
@@ -35,10 +48,8 @@ app.get("/db-test", async (req, res) => {
  * @param {Episode[]} episodes
  * @returns void
  */
-function summariseEpisodesToConsole(episodes) {
-    console.log(`Loaded ${episodes.length} episodes`);
-    console.log("The first episode has name of " + episodes[0].name);
-}
+
+
 
 // use the environment variable PORT, or 3000 as a fallback if it is undefined
 const PORT_NUMBER = process.env.PORT ?? 3000;
