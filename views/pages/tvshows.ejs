@@ -7,18 +7,18 @@
 
     <ul>
         <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
-          <li><%= gameOfThronesEpisodes[i].name %></li>
-          <li><%= gameOfThronesEpisodes[i].season %></li>
-          <li><%= gameOfThronesEpisodes[i].number %></li>
-        <% } %>
+            <li><%= gameOfThronesEpisodes[i].name %>&nbsp;- &nbsp;<%= 'S' + gameOfThronesEpisodes[i].season + 'E' + gameOfThronesEpisodes[i].number %></li>
+            <br>
+            <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
+            <%= gameOfThronesEpisodes[i].summary %>
+            <hr/>
+          <% } %>
+          
+
     </ul>
     
 
 
-
-
-
-
-
+    
 </body>
 </html> 
