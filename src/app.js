@@ -26,11 +26,6 @@ app.get("/contactus", (req, res) => {
 
 //route to get to the database - need to make reference to the gameOfThroneData.js
 app.get('/tvshows', (req, res) => {
-    const gameOfThronesEpisodes = [
-        { name: "Quote One", snippet: "Believe you can, and you're halfway there." },
-        { name: "Quote Two", snippet: "The only way to do great work is to love what you do." },
-        { name: "Quote Three", snippet: "The future belongs to those who believe in the beauty of their dreams." },
-    ];
     res.render('pages/tvshows', { gameOfThronesEpisodes : gameOfThronesEpisodes });
 });
 function summariseEpisodesToConsole(episodes) {

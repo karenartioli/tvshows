@@ -6,10 +6,19 @@
 <body>
 
     <ul>
-        <% for (let episode of gameOfThronesEpisodes) { %>
-          <li><%= gameOfThronesEpisodes[0].name %></li>
+        <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
+          <li><%= gameOfThronesEpisodes[i].name %></li>
+          <li><%= gameOfThronesEpisodes[i].season %></li>
+          <li><%= gameOfThronesEpisodes[i].number %></li>
         <% } %>
     </ul>
     
+
+
+
+
+
+
+
 </body>
 </html> 
