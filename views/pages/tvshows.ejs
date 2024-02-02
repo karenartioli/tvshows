@@ -10,7 +10,8 @@
             <li><%= gameOfThronesEpisodes[i].name %>&nbsp;- &nbsp;<%= 'S' + gameOfThronesEpisodes[i].season + 'E' + gameOfThronesEpisodes[i].number %></li>
             <br>
             <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
-            <%= gameOfThronesEpisodes[i].summary %>
+            <br>
+            <%= gameOfThronesEpisodes[i].summary.split("<p>")[1].split ("</p>")[0] %>
             <hr/>
           <% } %>
           
