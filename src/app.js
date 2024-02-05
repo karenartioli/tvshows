@@ -45,6 +45,23 @@ function summariseEpisodesToConsole(episodes) {
     console.log("The first episode has name of " + episodes[0].name);
 }
 
+// Search bar
+function filterArrayBySearchTerm(array, searchTerm) {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    return array.filter((element) =>
+        element.toLowerCase().includes(lowerCaseSearchTerm),
+    );
+}
+
+app.get("/tvshows/:searchTerm", async (req, res) => {
+    const searchTerm = req.params.searchTerm;
+    const filteredResult = await filterArrayBySearchTerm(
+        gameOfThronesEpisodes,
+        searchTerm,
+    );
+    res.send(filteredResult);
+});
+
 app.get("/db-test", async (req, res) => {
     try {
         const dbResult = await query("select now()");
