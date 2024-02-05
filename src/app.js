@@ -33,6 +33,10 @@ function summariseEpisodesToConsole(episodes) {
     console.log("The first episode has name of " + episodes[0].name);
 }
 
+//each episode page 
+app.get('/eachepisodepage', (req, res) => {
+    res.render('pages/eachepisodepage', { gameOfThronesEpisodes: gameOfThronesEpisodes });
+  });
 
 app.get("/db-test", async (req, res) => {
     try {
@@ -47,6 +51,8 @@ app.get("/db-test", async (req, res) => {
         );
     }
 });
+
+
 
 /**
  * You can delete this function.  It demonstrates the use of the Episode type in JSDoc.

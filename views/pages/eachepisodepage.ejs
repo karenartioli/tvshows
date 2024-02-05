@@ -1,0 +1,29 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter is Coming</title>
+</head>
+<body>
+
+    <ul>
+        <li><a href= "/" >Home</a></li>
+        <li> <a href= "/aboutus" >About Us</a></li>
+        <li> <a href= "/contactus" >Contact Us</a></li>
+        <li> <a href= "/tvshows" >All TV Episodes</a></li>
+        </ul>
+
+<h1>Winter Is Coming</h1>
+
+
+<img id="image" src="<%= gameOfThronesEpisodes[0].image.original %>">
+<%= gameOfThronesEpisodes[0].runtime %>
+<%= gameOfThronesEpisodes[0].rating.average %>
+<%= gameOfThronesEpisodes[0].airdate %>
+
+
+
+    
+</body>
+</html> 
+
+<%- include("../partials/footer.ejs") %>

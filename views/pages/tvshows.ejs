@@ -15,7 +15,7 @@
 
     <ul>
         <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
-            <li><%= gameOfThronesEpisodes[i].name %> - <%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %></li>
+            <li> <a href="/eachepisodepage"> <b> <%= gameOfThronesEpisodes[i].name %> </b>  </a>  - <%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %></li>
             <br>
             <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
             <br>
