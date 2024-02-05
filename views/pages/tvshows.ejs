@@ -6,6 +6,13 @@
 <body>
 
     <ul>
+        <li><a href= "/" >Home</a></li>
+        <li> <a href= "/aboutus" >About Us</a></li>
+        <li> <a href= "/contactus" >Contact Us</a></li>
+        </ul>
+
+<h1>Game of Thrones Episodes</h1>
+    <ul>
         <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
             <li><%= gameOfThronesEpisodes[i].name %> - <%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %></li>
             <br>
@@ -23,3 +30,5 @@
     
 </body>
 </html> 
+
+<%- include("../partials/footer.ejs") %>
