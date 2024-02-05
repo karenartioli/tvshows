@@ -1,35 +1,40 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game of Throne Episodes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game of Throne Episodes</title>
 </head>
+
 <body>
 
-    <ul>
-        <li><a href= "/" >Home</a></li>
-        <li> <a href= "/aboutus" >About Us</a></li>
-        <li> <a href= "/contactus" >Contact Us</a></li>
-        </ul>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li> <a href="/aboutus">About Us</a></li>
+    <li> <a href="/contactus">Contact Us</a></li>
+  </ul>
 
-<h1>Game of Thrones Episodes</h1>
+  <h1>Game of Thrones Episodes</h1>
 
-    <ul>
-        <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
-            <li> <a href="/eachepisodepage"> <b> <%= gameOfThronesEpisodes[i].name %> </b>  </a>  - <%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %></li>
-            <br>
-            <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
-            <br>
-            <%= gameOfThronesEpisodes[i].summary.slice(3, gameOfThronesEpisodes[i].summary.length - 4) %>
-            <hr/>
-          <% } %>
-          
+  <ul>
+    <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
+    <li>
+      <a href="/tvshows/<%= gameOfThronesEpisodes[i].id %>">
+        <b><%= gameOfThronesEpisodes[i].name %></b>
+      </a> - <%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %>
+      <br>
+      <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
+      <br>
+      <%= gameOfThronesEpisodes[i].summary.slice(3, gameOfThronesEpisodes[i].summary.length - 4) %>
+      <hr />
+    </li>
+    <% } %>
 
-    </ul>
-    
+  </ul>
 
 
-    
+
+
 </body>
-</html> 
+
+</html>
 
 <%- include("../partials/footer.ejs") %>

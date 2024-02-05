@@ -1,6 +1,6 @@
 const { app } = require("./support/setupExpress");
 const { query } = require("./support/db");
-const {gameOfThronesEpisodes} = require('./data/gameOfThronesData.js')
+const { gameOfThronesEpisodes } = require("./data/gameOfThronesData.js");
 
 /** 
  @typedef {import('./data/episodeType').Episode} Episode
@@ -16,27 +16,34 @@ app.get("/", (req, res) => {
 
 //page about KAsquared
 app.get("/aboutus", (req, res) => {
-    res.render("pages/aboutus")
+    res.render("pages/aboutus");
 });
 
 //contacting KAsquared
 app.get("/contactus", (req, res) => {
-    res.render("pages/contactus")
+    res.render("pages/contactus");
 });
 
 //route to get to the database - need to make reference to the gameOfThroneData.js
-app.get('/tvshows', (req, res) => {
-    res.render('pages/tvshows', { gameOfThronesEpisodes : gameOfThronesEpisodes });
+app.get("/tvshows", (req, res) => {
+    res.render("pages/tvshows", {
+        gameOfThronesEpisodes: gameOfThronesEpisodes,
+    });
 });
 function summariseEpisodesToConsole(episodes) {
     console.log(`Loaded ${episodes.length} episodes`);
     console.log("The first episode has name of " + episodes[0].name);
 }
 
-//each episode page 
-app.get('/eachepisodepage', (req, res) => {
-    res.render('pages/eachepisodepage', { gameOfThronesEpisodes: gameOfThronesEpisodes });
-  });
+//each episode page
+app.get("/episode/:episodeId", (req, res) => {
+    const episodeId = req.params.episodeId;
+    const episode = gameOfThronesEpisodes.find(function (ep) {
+        return ep.id === episodeId;
+    });
+
+    res.render("pages/episode", { episode: episode });
+});
 
 app.get("/db-test", async (req, res) => {
     try {
@@ -52,15 +59,11 @@ app.get("/db-test", async (req, res) => {
     }
 });
 
-
-
 /**
  * You can delete this function.  It demonstrates the use of the Episode type in JSDoc.
  * @param {Episode[]} episodes
  * @returns void
  */
-
-
 
 // use the environment variable PORT, or 3000 as a fallback if it is undefined
 const PORT_NUMBER = process.env.PORT ?? 3000;
