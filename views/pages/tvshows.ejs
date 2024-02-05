@@ -12,13 +12,14 @@
         </ul>
 
 <h1>Game of Thrones Episodes</h1>
+
     <ul>
         <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
             <li><%= gameOfThronesEpisodes[i].name %> - <%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %></li>
             <br>
             <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
             <br>
-            <%= gameOfThronesEpisodes[i].summary.split("<p>")[1].split ("</p>")[0] %>
+            <%= gameOfThronesEpisodes[i].summary.slice(3, gameOfThronesEpisodes[i].summary.length - 4) %>
             <hr/>
           <% } %>
           
