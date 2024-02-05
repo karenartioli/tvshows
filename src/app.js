@@ -30,20 +30,20 @@ app.get("/tvshows", (req, res) => {
         gameOfThronesEpisodes: gameOfThronesEpisodes,
     });
 });
+
+//each episode page
+app.get("/tvshows/:episodeId", (req, res) => {
+    const episodeId = req.params.episodeId;
+    const episode = gameOfThronesEpisodes.find(function (ep) {
+        return String(ep.id) === episodeId;
+    });
+    res.render("pages/episode", { episode });
+});
+
 function summariseEpisodesToConsole(episodes) {
     console.log(`Loaded ${episodes.length} episodes`);
     console.log("The first episode has name of " + episodes[0].name);
 }
-
-//each episode page
-app.get("/episode/:episodeId", (req, res) => {
-    const episodeId = req.params.episodeId;
-    const episode = gameOfThronesEpisodes.find(function (ep) {
-        return ep.id === episodeId;
-    });
-
-    res.render("pages/episode", { episode: episode });
-});
 
 app.get("/db-test", async (req, res) => {
     try {
