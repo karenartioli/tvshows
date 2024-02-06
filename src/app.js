@@ -24,18 +24,45 @@ app.get("/contactus", (req, res) => {
     res.render("pages/contactus");
 });
 
-//route to get to the database - need to make reference to the gameOfThroneData.js
+//shows matching search term from the query part of the url
 app.get("/tvshows", (req, res) => {
-    console.log("req.query", req.query);
+    console.log ("getting matching search term")
     const searchTerm = req.query.searchTerm;
-    console.log("Search Term", searchTerm);
+    console.log ("searchTerm",  searchTerm)
+    const filteredArray = filterArrayBySearchTerm(gameOfThronesEpisodes, searchTerm);
+    res.render("pages/tvshows", {gameOfThronesEpisodes: filteredArray});
+
+});
+
+function filterArrayBySearchTerm (array, searchTerm) {
+
+    let filteredArray = [];
+    
+    for (let i = 0; i < array.length; i++) {
+    
+        if (array[i].summary.includes(searchTerm) || array[i].name.includes(searchTerm)) {
+            filteredArray.push(array[i]);
+        }
+        
+    }
+    return filteredArray;
+    
+    }
+
+
+//shows all tv episodes
+
+app.get("/tvshows", (req, res) => {
+    console.log ("Hi,Kaosara")
     res.render("pages/tvshows", {
         gameOfThronesEpisodes: gameOfThronesEpisodes,
     });
 });
 
+
 //each episode page
 app.get("/tvshows/:episodeId", (req, res) => {
+    console.log ("Hi,Karen")
     const episodeId = req.params.episodeId;
     const episode = gameOfThronesEpisodes.find(function (ep) {
         return String(ep.id) === episodeId;
@@ -48,23 +75,17 @@ function summariseEpisodesToConsole(episodes) {
     console.log("The first episode has name of " + episodes[0].name);
 }
 
-// Search bar
-function filterArrayBySearchTerm(array, searchTerm) {
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
-    return array.filter((element) =>
-        element.toLowerCase().includes(lowerCaseSearchTerm),
-    );
-}
+// Search bar 
 
-app.get("/tvshows/:searchTerm", async (req, res) => {
-    const searchTerm = req.params.searchTerm;
-    const filteredResult = await filterArrayBySearchTerm(
-        gameOfThronesEpisodes,
-        searchTerm,
-    );
-    res.send(filteredResult);
-});
+// function filterArrayBySearchTerm(array, searchTerm) {
+//     const lowerCaseSearchTerm = searchTerm.toLowerCase();
+//     return array.filter((element) =>
+//         element.toLowerCase().includes(lowerCaseSearchTerm),
+//     );
+// }
 
+
+// 404 page
 app.get("/db-test", async (req, res) => {
     try {
         const dbResult = await query("select now()");
