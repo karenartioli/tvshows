@@ -26,43 +26,50 @@ app.get("/contactus", (req, res) => {
 
 //shows matching search term from the query part of the url
 app.get("/tvshows", (req, res) => {
-    console.log ("getting matching search term")
+    console.log("getting matching search term");
     const searchTerm = req.query.searchTerm;
-    console.log ("searchTerm",  searchTerm)
-    const filteredArray = filterArrayBySearchTerm(gameOfThronesEpisodes, searchTerm);
-    res.render("pages/tvshows", {gameOfThronesEpisodes: filteredArray});
-
+    console.log("searchTerm", searchTerm);
+    if (searchTerm === undefined) {
+        //show all episodes to user
+        res.render("pages/tvshows", {
+            gameOfThronesEpisodes: gameOfThronesEpisodes,
+        });
+    } else {
+        //show filtered episodes
+        const filteredArray = filterArrayBySearchTerm(
+            gameOfThronesEpisodes,
+            searchTerm,
+        );
+        res.render("pages/tvshows", { gameOfThronesEpisodes: filteredArray });
+    }
 });
 
-function filterArrayBySearchTerm (array, searchTerm) {
-
+function filterArrayBySearchTerm(array, searchTerm) {
     let filteredArray = [];
-    
+
     for (let i = 0; i < array.length; i++) {
-    
-        if (array[i].summary.includes(searchTerm) || array[i].name.includes(searchTerm)) {
+        if (
+            array[i].summary.includes(searchTerm) ||
+            array[i].name.includes(searchTerm)
+        ) {
             filteredArray.push(array[i]);
         }
-        
     }
     return filteredArray;
-    
-    }
-
+}
 
 //shows all tv episodes
 
 app.get("/tvshows", (req, res) => {
-    console.log ("Hi,Kaosara")
+    console.log("Hi,Kaosara");
     res.render("pages/tvshows", {
         gameOfThronesEpisodes: gameOfThronesEpisodes,
     });
 });
 
-
 //each episode page
 app.get("/tvshows/:episodeId", (req, res) => {
-    console.log ("Hi,Karen")
+    console.log("Hi,Karen");
     const episodeId = req.params.episodeId;
     const episode = gameOfThronesEpisodes.find(function (ep) {
         return String(ep.id) === episodeId;
@@ -75,7 +82,7 @@ function summariseEpisodesToConsole(episodes) {
     console.log("The first episode has name of " + episodes[0].name);
 }
 
-// Search bar 
+// Search bar
 
 // function filterArrayBySearchTerm(array, searchTerm) {
 //     const lowerCaseSearchTerm = searchTerm.toLowerCase();
@@ -83,7 +90,6 @@ function summariseEpisodesToConsole(episodes) {
 //         element.toLowerCase().includes(lowerCaseSearchTerm),
 //     );
 // }
-
 
 // 404 page
 app.get("/db-test", async (req, res) => {
