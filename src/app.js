@@ -26,6 +26,9 @@ app.get("/contactus", (req, res) => {
 
 //route to get to the database - need to make reference to the gameOfThroneData.js
 app.get("/tvshows", (req, res) => {
+    console.log("req.query", req.query);
+    const searchTerm = req.query.searchTerm;
+    console.log("Search Term", searchTerm);
     res.render("pages/tvshows", {
         gameOfThronesEpisodes: gameOfThronesEpisodes,
     });

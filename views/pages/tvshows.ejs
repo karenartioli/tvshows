@@ -14,9 +14,10 @@
 
   <h1>Game of Thrones Episodes</h1>
 
-  <title>Search Bar</title>
-  <input type="text" id="searchInput" placeholder="Search An Episode">
-  <button type="Submit">Search</button>
+  <form>
+    <input type="text" name="searchTerm" placeholder="search here" />
+    <button type="submit">Search</button>
+  </form>
 
   <ul>
     <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
