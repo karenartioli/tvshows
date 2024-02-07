@@ -6,9 +6,6 @@ const { gameOfThronesEpisodes } = require("./data/gameOfThronesData.js");
  @typedef {import('./data/episodeType').Episode} Episode
 */
 
-//You can delete this once you see the episodes have loaded ok.
-summariseEpisodesToConsole(gameOfThronesEpisodes);
-
 //configure the server's route handlers
 app.get("/", (req, res) => {
     res.render("pages/index");
@@ -40,7 +37,12 @@ app.get("/tvshows", (req, res) => {
             gameOfThronesEpisodes,
             searchTerm,
         );
-        res.render("pages/tvshows", { gameOfThronesEpisodes: filteredArray });
+        res.render("pages/tvshows", {
+            gameOfThronesEpisodes: filteredArray,
+            filteredArray: searchTerm,
+            searchTerm: gameOfThronesEpisodes,
+            faveFood: "jollof rice",
+        });
     }
 });
 
@@ -77,20 +79,6 @@ app.get("/tvshows/:episodeId", (req, res) => {
     res.render("pages/episode", { episode });
 });
 
-function summariseEpisodesToConsole(episodes) {
-    console.log(`Loaded ${episodes.length} episodes`);
-    console.log("The first episode has name of " + episodes[0].name);
-}
-
-// Search bar
-
-// function filterArrayBySearchTerm(array, searchTerm) {
-//     const lowerCaseSearchTerm = searchTerm.toLowerCase();
-//     return array.filter((element) =>
-//         element.toLowerCase().includes(lowerCaseSearchTerm),
-//     );
-// }
-
 // 404 page
 app.get("/db-test", async (req, res) => {
     try {
@@ -106,12 +94,6 @@ app.get("/db-test", async (req, res) => {
     }
 });
 
-/**
- * You can delete this function.  It demonstrates the use of the Episode type in JSDoc.
- * @param {Episode[]} episodes
- * @returns void
- */
-
 // use the environment variable PORT, or 3000 as a fallback if it is undefined
 const PORT_NUMBER = process.env.PORT ?? 3000;
 
@@ -122,4 +104,4 @@ app.listen(PORT_NUMBER, () => {
     );
 });
 
-module.exports = { filteredArray };
+//module.exports = { filteredArray };

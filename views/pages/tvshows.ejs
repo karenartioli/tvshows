@@ -1,4 +1,4 @@
-import { filteredArray } from "./src/app.js";
+//import { filteredArray } from "./src/app.js";
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,10 @@ import { filteredArray } from "./src/app.js";
     <input type="text" name="searchTerm" placeholder="search here" />
     <button type="submit">Search</button>
   </form>
+
+  <p>Kaosara faves food is: <%=faveFood%> </p>
   <p>Displaying <%= filteredArray.length %> / <%= gameOfThronesEpisodes.length %> Episodes</p>
+  <p>You searched for <%= searchTerm %></p>
 
   <div>
     <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
