@@ -30,7 +30,8 @@ app.get("/tvshows", (req, res) => {
         //show all episodes to user
         res.render("pages/tvshows", {
             gameOfThronesEpisodes: gameOfThronesEpisodes,
-            filteredArray: null,
+            filteredArray: [],
+            searchTerm: searchTerm,
         });
     } else {
         //show filtered episodes
