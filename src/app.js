@@ -60,15 +60,6 @@ function filterArrayBySearchTerm(array, searchTerm) {
     return filteredArray;
 }
 
-//shows all tv episodes
-
-app.get("/tvshows", (req, res) => {
-    console.log("Hi,Kaosara");
-    res.render("pages/tvshows", {
-        gameOfThronesEpisodes: gameOfThronesEpisodes,
-    });
-});
-
 //each episode page
 app.get("/tvshows/:episodeId", (req, res) => {
     console.log("Hi,Karen");
@@ -103,5 +94,3 @@ app.listen(PORT_NUMBER, () => {
         `Your express app started listening on ${PORT_NUMBER} at ${new Date()}`,
     );
 });
-
-//module.exports = { filteredArray };
