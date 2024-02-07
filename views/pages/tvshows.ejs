@@ -1,7 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game of Throne Episodes</title>
+
+  <!-- Add the CSS styles for episode container, title, description, and number -->
+  <style>
+    /* Style for the episode container */
+    .episode-container {
+      background-color: #f0f0f0; /* Background color */
+      border: 2px solid #333; /* Strong border */
+      border-radius: 10px; /* Rounded corners */
+      padding: 20px; /* Padding inside the box */
+      margin: 10px 0; /* Margin around the box */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+    }
+
+    /* Style for the episode title */
+    .episode-title {
+      font-size: 1.5em; /* Font size for the title */
+      color: #333; /* Text color */
+      margin-bottom: 10px; /* Space between title and other content */
+    }
+
+    /* Style for the episode description */
+    .episode-description {
+      font-size: 1em; /* Font size for the description */
+      color: #666; /* Text color */
+    }
+
+    /* Style for the episode number */
+    .episode-number {
+      font-size: 0.8em; /* Font size for the episode number */
+      color: #888; /* Text color */
+      margin-top: 5px; /* Space between number and other content */
+    }
+  </style>
 </head>
 
 <body>
@@ -19,21 +55,20 @@
     <button type="submit">Search</button>
   </form>
 
-  <ul>
+  <div>
     <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
-    <li>
+    <div class="episode-container">
       <a href="/tvshows/<%= gameOfThronesEpisodes[i].id %>">
-        <b><%= gameOfThronesEpisodes[i].name %></b>
-      </a> - <%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %>
+        <b class="episode-title"><%= gameOfThronesEpisodes[i].name %></b>
+      </a> - <span class="episode-number"><%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %></span>
       <br>
       <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
       <br>
-      <%= gameOfThronesEpisodes[i].summary.slice(3, gameOfThronesEpisodes[i].summary.length - 4) %>
+      <span class="episode-description"><%= gameOfThronesEpisodes[i].summary.slice(3, gameOfThronesEpisodes[i].summary.length - 4) %></span>
       <hr />
-    </li>
+    </div>
     <% } %>
-
-  </ul>
+  </div>
 
 
 

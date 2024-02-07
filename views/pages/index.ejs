@@ -1,17 +1,69 @@
-<ul>
-  <li><a href="/">Home</a></li>
-  <li> <a href="/aboutus">About Us</a></li>
-  <li> <a href="/tvshows">All TV Episodes</a></li>
-  <li> <a href="/contactus">Contact Us</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
 
-<%- include("../partials/header.ejs", {title: "KAsquared TV Shows"}) %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAsquared TV Shows</title>
 
+  <!-- Add the CSS styles for the background image and navigation -->
+  <style>
+    body {
+      background-image: url('path/to/your/background-image.jpg'); /* Update the path accordingly */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-<section>
-  <p><a href="/db-test">Clicking this link will test to see if your db connection is ok</a></p>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8); /* Background color for navigation */
+      overflow: hidden;
+    }
 
-</section>
+    li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 20px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/aboutus">About Us</a></li>
+    <li><a href="/tvshows">All TV Episodes</a></li>
+    <li><a href="/contactus">Contact Us</a></li>
+  </ul>
+
+  <%- include("../partials/header.ejs", {title: "KAsquared TV Shows"}) %>
+
+  <section>
+    <p><a href="/db-test">Clicking this link will test to see if your db connection is ok</a></p>
+  </section>
+
+</body>
+
+</html>
 
 
 
