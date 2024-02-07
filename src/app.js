@@ -23,15 +23,12 @@ app.get("/contactus", (req, res) => {
 
 //shows matching search term from the query part of the url
 app.get("/tvshows", (req, res) => {
-    console.log("getting matching search term");
     const searchTerm = req.query.searchTerm;
-    console.log("searchTerm", searchTerm);
     if (searchTerm === undefined) {
         //show all episodes to user
         res.render("pages/tvshows", {
             gameOfThronesEpisodes: gameOfThronesEpisodes,
-            filteredArray: [],
-            searchTerm: searchTerm,
+            filteredArray: gameOfThronesEpisodes,
         });
     } else {
         //show filtered episodes
@@ -40,9 +37,8 @@ app.get("/tvshows", (req, res) => {
             searchTerm,
         );
         res.render("pages/tvshows", {
-            gameOfThronesEpisodes: gameOfThronesEpisodes, // All episodes
+            gameOfThronesEpisodes: filteredArray, // All episodes
             filteredArray: filteredArray, // Filtered episodes
-            searchTerm: searchTerm,
         });
     }
 });
