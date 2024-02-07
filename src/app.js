@@ -30,6 +30,7 @@ app.get("/tvshows", (req, res) => {
         //show all episodes to user
         res.render("pages/tvshows", {
             gameOfThronesEpisodes: gameOfThronesEpisodes,
+            filteredArray: null,
         });
     } else {
         //show filtered episodes
@@ -38,17 +39,15 @@ app.get("/tvshows", (req, res) => {
             searchTerm,
         );
         res.render("pages/tvshows", {
-            gameOfThronesEpisodes: filteredArray,
-            filteredArray: searchTerm,
-            searchTerm: gameOfThronesEpisodes,
-            faveFood: "jollof rice",
+            gameOfThronesEpisodes: gameOfThronesEpisodes, // All episodes
+            filteredArray: filteredArray, // Filtered episodes
+            searchTerm: searchTerm,
         });
     }
 });
 
-let filteredArray = [];
-
 function filterArrayBySearchTerm(array, searchTerm) {
+    let filteredArray = [];
     for (let i = 0; i < array.length; i++) {
         if (
             array[i].summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
