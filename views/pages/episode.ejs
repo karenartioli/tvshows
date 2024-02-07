@@ -10,7 +10,8 @@
     <li> <a href="/tvshows">Back to All TV Episodes</a></li>
   </ul>
 
-  <h1><%= episode.name %></h1>
+  <%- include("../partials/header.ejs", {title: episode.name }) %>
+
 
 
   <p> <b> Run Time:</b> <%= episode.runtime %> </p>

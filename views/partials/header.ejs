@@ -2,18 +2,48 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAsquared TV Shows</title>
 
-  <!-- A nice-looking defaults stylesheet for simple html pages.  Optional.  -->
-  <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+  <!-- Add the CSS styles for the background image and navigation -->
+  <style>
+    body {
+      background-image: url('path/to/your/background-image.jpg'); /* Update the path accordingly */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-  <!-- and/or link to your own css -->
-  <link href="/style.css" rel="stylesheet" />
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8); /* Background color for navigation */
+      overflow: hidden;
+    }
 
-  <link rel="icon" href="/favicon.png" type="image/x-icon" />
+    li {
+      display: inline;
+      margin-right: 20px;
+    }
 
-  <title><%= title %></title>
+    li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 20px;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
