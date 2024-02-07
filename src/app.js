@@ -44,13 +44,13 @@ app.get("/tvshows", (req, res) => {
     }
 });
 
-function filterArrayBySearchTerm(array, searchTerm) {
-    let filteredArray = [];
+let filteredArray = [];
 
+function filterArrayBySearchTerm(array, searchTerm) {
     for (let i = 0; i < array.length; i++) {
         if (
-            array[i].summary.includes(searchTerm) ||
-            array[i].name.includes(searchTerm)
+            array[i].summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            array[i].name.toLowerCase().includes(searchTerm.toLowerCase())
         ) {
             filteredArray.push(array[i]);
         }
@@ -121,3 +121,5 @@ app.listen(PORT_NUMBER, () => {
         `Your express app started listening on ${PORT_NUMBER} at ${new Date()}`,
     );
 });
+
+module.exports = { filteredArray };
