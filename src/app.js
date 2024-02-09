@@ -1,6 +1,6 @@
 const { app } = require("./support/setupExpress");
 const { query } = require("./support/db");
-const { gameOfThronesEpisodes } = require("./data/gameOfThronesData.js");
+const { gameOfThronesEpisodes } = require("./data/breakingBadData.js");
 
 /** 
  @typedef {import('./data/episodeType').Episode} Episode
