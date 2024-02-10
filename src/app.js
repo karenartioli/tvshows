@@ -28,7 +28,6 @@ app.get("/tvshows", (req, res) => {
         //show all episodes to user
         res.render("pages/tvshows", {
             gameOfThronesEpisodes: gameOfThronesEpisodes,
-            filteredArray: gameOfThronesEpisodes,
         });
     } else {
         //show filtered episodes
@@ -37,8 +36,7 @@ app.get("/tvshows", (req, res) => {
             searchTerm,
         );
         res.render("pages/tvshows", {
-            gameOfThronesEpisodes: filteredArray, // All episodes
-            filteredArray: filteredArray, // Filtered episodes
+            gameOfThronesEpisodes: filteredArray,
         });
     }
 });
