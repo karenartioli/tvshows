@@ -9,7 +9,7 @@
 
 <body>
 
-  <%- include("../partials/header.ejs", {title: "Game of Thrones Episodes"}) %>
+  <%- include("../partials/header.ejs", {title: "Breaking Bad Episodes"}) %>
 
 
   <form>
@@ -17,18 +17,18 @@
     <button type="submit">Search</button>
   </form>
 
-  <p>Displaying <%= gameOfThronesEpisodes.length %> Episodes</p>
+  <p>Displaying <%= breakingBadEpisodes.length %> Episodes</p>
 
   <div>
-    <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
+    <% for (let i = 0; i < breakingBadEpisodes.length; i++) { %>
     <div class="episode-container">
-      <a href="/tvshows/<%= gameOfThronesEpisodes[i].id %>">
-        <b class="episode-title"><%= gameOfThronesEpisodes[i].name %></b>
-      </a> - <span class="episode-number"><%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %></span>
+      <a href="/tvshows/<%= breakingBadEpisodes[i].id %>">
+        <b class="episode-title"><%= breakingBadEpisodes[i].name %></b>
+      </a> - <span class="episode-number"><%= 'S' + breakingBadEpisodes[i].season.toString().padStart(2, '0') + 'E' + breakingBadEpisodes[i].number.toString().padStart(2, '0') %></span>
       <br>
-      <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
+      <img id="image" src="<%= breakingBadEpisodes[i].image.medium %>">
       <br>
-      <span class="episode-description"><%= gameOfThronesEpisodes[i].summary.slice(3, gameOfThronesEpisodes[i].summary.length - 4) %></span>
+      <span class="episode-description"><%= breakingBadEpisodes[i].summary.slice(3, breakingBadEpisodes[i].summary.length - 4) %></span>
       <hr />
     </div>
     <% } %>

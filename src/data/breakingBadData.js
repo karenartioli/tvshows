@@ -12,7 +12,7 @@
  * @link https://api.tvmaze.com/shows/82/episodes  Original source at TV Maze API
  * @type {Episode[]}
  */
-const gameOfThronesEpisodes = [
+const breakingBadEpisodes = [
     {
         id: 12192,
         url: "https://www.tvmaze.com/episodes/12192/breaking-bad-1x01-pilot",
@@ -1501,4 +1501,4 @@ const gameOfThronesEpisodes = [
     },
 ];
 
-module.exports = { gameOfThronesEpisodes };
+module.exports = { breakingBadEpisodes };

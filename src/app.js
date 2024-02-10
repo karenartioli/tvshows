@@ -1,6 +1,6 @@
 const { app } = require("./support/setupExpress");
 const { query } = require("./support/db");
-const { gameOfThronesEpisodes } = require("./data/breakingBadData.js");
+const { breakingBadEpisodes } = require("./data/breakingBadData.js");
 
 /** 
  @typedef {import('./data/episodeType').Episode} Episode
@@ -27,16 +27,16 @@ app.get("/tvshows", (req, res) => {
     if (searchTerm === undefined) {
         //show all episodes to user
         res.render("pages/tvshows", {
-            gameOfThronesEpisodes: gameOfThronesEpisodes,
+            breakingBadEpisodes: breakingBadEpisodes,
         });
     } else {
         //show filtered episodes
         const filteredArray = filterArrayBySearchTerm(
-            gameOfThronesEpisodes,
+            breakingBadEpisodes,
             searchTerm,
         );
         res.render("pages/tvshows", {
-            gameOfThronesEpisodes: filteredArray,
+            breakingBadEpisodes: filteredArray,
         });
     }
 });
@@ -57,7 +57,7 @@ function filterArrayBySearchTerm(array, searchTerm) {
 //each episode page
 app.get("/tvshows/:episodeId", (req, res) => {
     const episodeId = req.params.episodeId;
-    const episode = gameOfThronesEpisodes.find(function (ep) {
+    const episode = breakingBadEpisodes.find(function (ep) {
         return String(ep.id) === episodeId;
     });
     res.render("pages/episode", { episode });
