@@ -56,7 +56,6 @@ function filterArrayBySearchTerm(array, searchTerm) {
 
 //each episode page
 app.get("/tvshows/:episodeId", (req, res) => {
-    console.log("Hi,Karen");
     const episodeId = req.params.episodeId;
     const episode = gameOfThronesEpisodes.find(function (ep) {
         return String(ep.id) === episodeId;
